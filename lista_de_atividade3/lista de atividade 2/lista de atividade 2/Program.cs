@@ -11,9 +11,43 @@ namespace lista_de_atividade_2
         static void Main(string[] args)
         {
 
-            ContaPoupanca poupador1 = new ContaPoupanca(2000);
 
-            Console.WriteLine(poupador1.CalcularJurosMensal(2000, 4));
+            decimal Poupador1 = 3000;
+            Console.WriteLine("Saldo do poupador 1 é: " + Poupador1);
+
+            decimal Juros = 0;
+
+
+
+            ContaPoupanca poupador1 = new ContaPoupanca();
+
+            if (Poupador1 == 3000)
+            {
+                Juros = 5;
+            }
+            
+           
+            decimal contaP1 = poupador1.CalcularJurosMensal(Poupador1, Juros) + Poupador1;
+                        
+            Console.WriteLine("seu saldo é = " + contaP1);
+
+            decimal Poupador2 = 2000;
+            Console.WriteLine("Saldo do poupador 2 é: " + Poupador2);
+
+           
+           
+            ContaPoupanca poupador2 = new ContaPoupanca();
+
+            if (Poupador2 == 2000)
+            {
+                Juros = 4;
+            }
+            
+            decimal contaP2 = poupador1.CalcularJurosMensal(Poupador2, Juros) + Poupador2;
+            
+
+            Console.WriteLine("seu saldo é = " + contaP2);
+
             Console.WriteLine("\n\n\nPressione qualquer tecla para sair...");
 
             Console.ReadKey(true);
@@ -25,8 +59,8 @@ namespace lista_de_atividade_2
     {
 
 
-        private double saldoPoupanca;
-        private double taxaDeJurosAnual;
+        private decimal saldoPoupanca;
+        
         
 
         
@@ -34,25 +68,24 @@ namespace lista_de_atividade_2
         
         public ContaPoupanca()
         {
-            this.saldoPoupanca = 0.0;
-            this.taxaDeJurosAnual = 0.0;
+            this.saldoPoupanca = 0;
+           
             
 
         } 
-        public ContaPoupanca(double saldoPoupanca)
+        public ContaPoupanca(decimal saldoPoupanca)
         {
             this.saldoPoupanca = saldoPoupanca;
             
         }
-        public double CalcularJurosMensal(double saldoPoupanca, double taxaDeJurosAnual)
+        public decimal CalcularJurosMensal(decimal saldoPoupanca, decimal taxaDeJurosAnual)
         {
             return ((saldoPoupanca * taxaDeJurosAnual) /100 )/ 12;
         }
-        static double AlterarTaxaJuros()
+        static decimal AlterarTaxaJuros()
         {
             return 1;
         }
-
 
 
 
